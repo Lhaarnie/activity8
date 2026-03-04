@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery Hide and Show Exercise</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    
+    <style>
+        body {
+            display: flex;
+            justify-content: center; /* Centers horizontally */
+            align-items: center;     /* Centers vertically */
+            height: 100vh;           /* Takes up full screen height */
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .profile-container {
+            text-align: center;        /* Keeps your text aligned nicely */
+            width: 300px;            /* Keeps the layout compact */
+        }
+        
+        /* Fixed height ensures the text doesn't jump up when the image hides */
+        #my-picture { 
+            width: 200px; 
+            height: 200px; 
+            background-color: #ddd; /* fallback color */
+            margin-bottom: 15px;
+        }
+        
+        .info { text-align: center; border-top: 2px solid #333; padding-top: 10px; }
+        b { color: #555; }
+    </style>
+</head>
+<body>
+
+    <div class="profile-container">
+        <img src="profile.png" id="my-picture" alt="My Profile Picture">
+
+        <div class="info">
+            <p><b>ID Number:</b> 2025-10089</p>
+            <p><b>Firstname:</b> Lhaarnie</p>
+            <p><b>Lastname:</b> Aman</p>
+            <p><b>Course:</b> Bachelor of Science in Animation and Multimedia Arts</p>
+            <p><b>Year:</b> 1st Year</p>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Triggered when mouse enters the image area
+            $("#my-picture").mouseenter(function() {
+                $(this).hide();
+            });
+
+            // Triggered when mouse leaves the image area
+            // Note: Since the image is hidden, we apply this to the container 
+            // or use a mouseout logic to bring it back.
+            $(".profile-container").mouseleave(function() {
+                $("#my-picture").show();
+            });
+        });
+    </script>
+
+</body>
+</html>
